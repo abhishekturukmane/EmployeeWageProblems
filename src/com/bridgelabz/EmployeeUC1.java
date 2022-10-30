@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class EmployeeUC1 {
 
-	//UC5--- Calculating Wages for a Month
+	//UC6--- a condition of total working hours or days is reached for month
 	public void check()
 	{
 		//constants
@@ -13,35 +13,52 @@ public class EmployeeUC1 {
 		int EMP_RATE_PER_HOUR=20;
 		
 		//variables
-		int empWage=20;
+		int empWage=0;
 		int empHrs=0;
-		int WorkingDays=20;
+		int workingDays=20;
 		
 		double empCheck=Math.floor(Math.random()*10)%2;
+		int i=(int)empCheck;
 		
-		if(empCheck == IS_PART_TIME)
+		switch(i)
 		{
-			empHrs=8;
-			System.out.println("Employee Hours:"+empHrs );
+		case 0 :
+				empHrs=8;
+				System.out.println("Employee hours: "+ empHrs);
+				empWage=empHrs*EMP_RATE_PER_HOUR;
+				System.out.println("The Employee Wage for "+empHrs+" is: "+ empWage );
+				break;
+				
+		case 1:
+				empHrs=16;
+				System.out.println("Employee hours: "+ empHrs);
+				empWage=empHrs*EMP_RATE_PER_HOUR;
+				System.out.println("The Employee Wage for "+empHrs+" is: "+ empWage );
+				break;
+				
+		default : System.out.println("Invalid number");
+		          break;
+		
 		}
-		else
+		
+		System.out.println("Now wage for 100 working hous and 20 working days is: ");
+		//emphrs=100
+		if(empCheck==IS_PART_TIME || empCheck==IS_FULL_TIME)
 		{
-			empHrs=16;
-			System.out.println("Employee Hours:"+empHrs );
-
+			empHrs=100;
+			System.out.println("Employee hours: "+ empHrs);
+			empWage=empHrs*EMP_RATE_PER_HOUR;
+			System.out.println("The Employee Wage for "+ empHrs+" is: "+ empWage );
 			
 		}
-		empWage=empHrs*EMP_RATE_PER_HOUR;
-		System.out.println("Employee Wage for single day is :"+empWage );
 		
-		//calculate for 20 working days
+		//workingdays=20
 		int totalWage=0;
-		for(int i=1;i<=WorkingDays;i++)
+		for(int j=1;j<=workingDays;j++)
 		{
 			totalWage=totalWage+empWage;
 		}
-		
-		System.out.println("Total Wage of Employee is:" + totalWage);
+		System.out.println("Total Wage for "+ workingDays + " is: "+ totalWage);
 	}
 	public static void main(String[] args) {
 		EmployeeUC1 obj=new EmployeeUC1();
